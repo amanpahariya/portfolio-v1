@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
+import HeroInfo from "@/utlity/hero.json";
 
 const Contact = () => {
   return (
@@ -43,7 +44,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-white">Email</h3>
-                    <p className="text-blue-400">hello@example.com</p>
+                    <p className="text-blue-400">{HeroInfo.email}</p>
                   </div>
                 </div>
               </motion.div>

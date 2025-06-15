@@ -1,6 +1,9 @@
 import React, { useRef } from "react";
 import { motion, useTransform, useScroll, useSpring } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
+
+import HeroInfo from "@/utlity/hero.json";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -8,10 +11,12 @@ const fadeInUp = {
   transition: { duration: 1 },
 };
 
+const MotionImage = motion(Image)
+
 const Hero = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref })
-  const rawScale = useTransform(scrollYProgress, [0, 0.2], [1, 0.7]);
+  const rawScale = useTransform(scrollYProgress, [0, 0.2], [1, 0.6]);
 
   const scale = useSpring(rawScale, {
     stiffness: 40, // lower = slower and smoother
@@ -40,7 +45,7 @@ const Hero = () => {
           >
             <span className="block text-white">Hi, I&apos;m</span>
             <span className="block mt-2 bg-clip-text">
-              Aman Gupta
+              {HeroInfo.name}
             </span>
           </motion.h1>
 
@@ -50,7 +55,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            Full Stack Developer
+            {HeroInfo.title}
           </motion.h2>
 
           <motion.p
@@ -116,7 +121,7 @@ const Hero = () => {
                 repeat: Infinity,
                 repeatType: "reverse",
               }}
-              src="/me.jpeg"
+              src={HeroInfo.heroImage}
               alt="Aman Gupta"
             />
             <motion.div

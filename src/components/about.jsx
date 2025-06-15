@@ -1,68 +1,77 @@
-import React from "react";
-import DashedIcon from "@/assets/icons/dashed.svg";
 import { motion } from "framer-motion";
-import {
-  PencilSquareIcon
-} from "@heroicons/react/24/outline";
+import HeroInfo from "@/utlity/hero.json";
+
+// Animation Variants
+const containerVariants = {
+  visible: {
+    transition: {
+      staggerChildren: 0.05,
+    },
+  },
+};
+
+const wordVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: { opacity: 1, y: 0 },
+};
 
 const About = () => {
   return (
-    <div className="p-12 pt-0 pb-0 lg:p-24 lg:pt-0 md:p-16">
-      <h2 className="text-4xl font-bold mt-2 text-center sm:text-5xl md:text-5xl lg:text-5xl">Biography</h2>
-      <div className="w-1/5 flex mx-auto mt-5">
-        <DashedIcon className="dashed-icon w-full" />
-      </div>
+    <div id="about" className="about-me">
+      <h2 className="text-center text-4xl lg:text-5xl font-bold mb-12 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-violet-400">
+        About Me
+        <motion.p className="text-sm text-gray-300 mt-2">
+          Get to know me better
+        </motion.p>
+      </h2>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 justify-center items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-1 justify-center items-center mt-14">
         <div className="col-span-1">
-          <div className="mt-14">
-            <h3 className="font-bold text-base mb-4 flex items-center gap-2">
-              <PencilSquareIcon className="w-5 h-5 inline" />
-              Personal Info
-            </h3>
-            <ul className="text-sm">
-              <li className="mb-2">
-                <span className="font-bold">Name:</span> Aman Gupta
-              </li>
-              <li className="mb-2">
-                <span className="font-bold">Email:</span>{" "}
-                <a
-                  className="hover:underline"
-                  href="mailto:amangupta201407@gmail.com"
-                >
-                  amangupta201407@gmail.com
-                </a>
-              </li>
-              <li className="mb-2">
-                <span className="font-bold">Location:</span> Bhopal, India
-              </li>
-              <li>
-                <span className="font-bold">Experience:</span> 2+ Years
-              </li>
-            </ul>
+          <div className="flex justify-center">
+            {/* Animated Image */}
+            <motion.div
+              whileHover={{
+                rotateY: 10,
+                rotateX: -5,
+                scale: 1.05,
+              }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="w-fit"
+            >
+              <motion.img
+                src={HeroInfo.aboutMeImage}
+                alt="Aman Gupta"
+                className="rounded-xl drop-shadow-xl"
+                style={{ width: 300, height: 300 }}
+              />
+            </motion.div>
           </div>
         </div>
 
         <div className="col-span-1">
-          <div className="mt-14">
-            <p className="text-sm leading-6 lg:text-base md:text-base sm:text-sm">
-              <span className="font-bold">Hello!</span> I&apos;m Aman Gupta, a passionate Full
-              Stack Developer with over 2 years of experience in building web applications.
-              I specialize in creating seamless user experiences and robust backend systems
-              using modern technologies.
-            </p>
-            <br />
-            <p className="text-sm leading-6 lg:text-base md:text-base sm:text-sm">
-              My expertise lies in React.js, Next.js, Node.js, and cloud technologies like AWS.
-              I have a strong foundation in both frontend and backend development, with a keen
-              eye for detail and a commitment to writing clean, maintainable code.
-            </p>
-            <br />
-            <p className="text-sm leading-6 lg:text-base md:text-base sm:text-sm">
-              I&apos;m always eager to learn new technologies and take on challenging projects.
-              Let&apos;s connect and create something extraordinary together!
-            </p>
-          </div>
+          {/* Animated Text */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="mt-14 text-lg text-center lg:text-left"
+          >
+            {HeroInfo.aboutMe.map((item, index) => (
+              <motion.p
+                key={index}
+                className="mb-4 flex flex-wrap text-base"
+                initial="hidden"
+                animate="visible"
+                variants={containerVariants}
+              >
+                {item.split(" ").map((word, i) => (
+                  <motion.span key={i} className="mr-1" variants={wordVariants}>
+                    {word}
+                  </motion.span>
+                ))}
+              </motion.p>
+            ))}
+          </motion.div>
         </div>
       </div>
     </div>

@@ -50,7 +50,6 @@
 
 /* Smooth scrolling */
 html {
-  @apply overflow-hidden;
   height: 100%;
   scroll-behavior: smooth;
 }

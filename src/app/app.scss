@@ -20,7 +20,7 @@
     min-h-screen;
 
     @media (max-width: 750px) {
-      @apply py-0;
+      // @apply py-0;
     }
   }
 
@@ -127,6 +127,17 @@
   }
 }
 
+.about-me {
+  @apply
+  lg:p-10
+  md:p-8
+  p-8
+  min-h-screen
+  flex
+  flex-col
+  items-center
+  justify-center;
+}
 
 @keyframes typing {
   0% { width: 0; }

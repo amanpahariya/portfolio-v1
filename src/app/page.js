@@ -25,9 +25,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className="py-20 relative">
-        <About />
-      </section>
+      <About />
 
       {/* Projects Section */}
       <Project />

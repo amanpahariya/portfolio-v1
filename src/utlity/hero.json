@@ -1,0 +1,13 @@
+{
+  "name": "Aman Gupta",
+  "title": "Full Stack Developer",
+  "email": "amangupta201497@gmail.com",
+  "bio": "I create exceptional digital experiences that combine stunning design with powerful functionality. Specializing in modern web applications and interactive experiences.",
+  "aboutMe": [
+    "Passionate full stack developer with 4+ years of hands-on experience in building scalable, responsive web applications.",
+    "Problem-solver by nature, well-organized, and highly focused on code quality and performance.",
+    "Outside of work, I’m into boxing, gaming, and exploring new tech. Always excited to collaborate on ambitious projects with curious minds."
+  ],
+  "heroImage": "images/hero.jpeg",
+  "aboutMeImage": "images/hero.jpeg"
+}
