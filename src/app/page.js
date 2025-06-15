@@ -1,18 +1,25 @@
 'use client';
-import { useRef } from "react";
-import dynamic from 'next/dynamic';
-
-import About from "@/components/about";
+import { useEffect, useRef } from "react";
 import Hero from "@/components/hero";
-
-const Project = dynamic(() => import('@/components/project'), { ssr: true });
-const Skills = dynamic(() => import('@/components/skills'), { ssr: true });
-const Contact = dynamic(() => import("@/components/contact"), { ssr: true });
-const Header = dynamic(() => import("@/components/header"), { ssr: true });
-const HeroVideo = dynamic(() => import('@/components/heroVideo'), { ssr: false });
+import About from "@/components/about";
+import Project from "@/components/project";
+import Skills from "@/components/skills";
+import Header from "@/components/header";
+import HeroVideo from "@/components/heroVideo";
+import Contact from "@/components/contact";
 
 export default function Home() {
   const containerRef = useRef(null);
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const targetElement = document.querySelector(hash);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [])
 
   return (
     <main className="min-h-screen text-white bg-[#0d1117]">

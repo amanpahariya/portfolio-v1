@@ -11,8 +11,6 @@ const fadeInUp = {
   transition: { duration: 1 },
 };
 
-const MotionImage = motion(Image)
-
 const Hero = () => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({ target: ref })

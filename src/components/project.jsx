@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const Project = () => {
   return (
-    <section id="work" className="py-20 px-6 lg:px-8">
+    <section id="project" className="projects">
       <div className="max-w-[1440px] mx-auto">
         <motion.div
           className="text-center mb-16"
@@ -13,7 +13,7 @@ const Project = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-violet-400">
-            Featured Projects
+            Projects
           </h2>
         </motion.div>
 

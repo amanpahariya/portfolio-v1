@@ -127,11 +127,14 @@
   }
 }
 
-.about-me {
+.about-me, .projects {
   @apply
   lg:p-10
   md:p-8
   p-8
+  pb-0
+  lg:pb-0
+  md:pb-0
   min-h-screen
   flex
   flex-col

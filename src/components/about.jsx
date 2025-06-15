@@ -17,13 +17,21 @@ const wordVariants = {
 
 const About = () => {
   return (
-    <div id="about" className="about-me">
-      <h2 className="text-center text-4xl lg:text-5xl font-bold mb-12 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-violet-400">
-        About Me
-        <motion.p className="text-sm text-gray-300 mt-2">
-          Get to know me better
-        </motion.p>
-      </h2>
+    <section id="about" className="about-me">
+      <motion.div
+        className="text-center mb-16"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <h2 className="text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-violet-400">
+          About Me
+          <motion.p className="text-sm text-gray-300 mt-2">
+            Get to know me better
+          </motion.p>
+        </h2>
+      </motion.div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 md:grid-cols-1 justify-center items-center mt-14">
         <div className="col-span-1">
@@ -74,7 +82,7 @@ const About = () => {
           </motion.div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

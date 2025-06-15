@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 
 const Skills = () => {
   return (
-      <section className="py-20 px-6 lg:px-8 relative overflow-hidden">
+      <section id="skills" className="py-20 px-6 lg:px-8 relative overflow-hidden">
         <div className="max-w-[1440px] mx-auto relative z-10">
           <motion.div 
             className="text-center"
