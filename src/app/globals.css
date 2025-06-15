@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Modern Portfolio Light Theme Colors */
+    --background: 220 10% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --primary: 210 91.2% 59.8%;
+    --primary-foreground: 210 47.4% 11.2%;
+    --secondary: 200 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 200 32.6% 17.5%;
+    --muted-foreground: 210 20.2% 65.1%;
+    --border: 200 32.6% 17.5%;
+    --input: 200 32.6% 17.5%;
+    --ring: 210 76.3% 48%;
+    --radius: 0.75rem;
+    --highlight: 236, 93%, 77%;
+    --base-size-32: 2rem;
+  }
+
+  .dark {
+    /* Modern Portfolio Dark Theme Colors */
+    --background: 220 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --primary: 210 91.2% 59.8%;
+    --primary-foreground: 210 47.4% 11.2%;
+    --secondary: 200 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 200 32.6% 17.5%;
+    --muted-foreground: 210 20.2% 65.1%;
+    --border: 200 32.6% 17.5%;
+    --input: 200 32.6% 17.5%;
+    --ring: 210 76.3% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  @apply overflow-hidden;
+  height: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-y: scroll;
+  height: 100%;
+}
