@@ -73,7 +73,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.5 }}
           >
             <Link
-              href="#work"
+              href="#project"
               className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-violet-600 overflow-hidden rounded-lg transition-all hover:scale-105"
             >
               <span className="relative z-10 text-white font-semibold">
