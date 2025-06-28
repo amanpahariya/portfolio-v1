@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
-import { Bars3Icon, MoonIcon, SunIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, MoonIcon, SunIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
 export default function Header() {
   const [mounted, setMounted] = useState(false);
@@ -11,17 +11,17 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showName, setShowName] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     setMounted(true);
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       setIsScrolled(currentScrollY > 50);
-      // Show name when scrolling down, hide when scrolling up
       if (currentScrollY > lastScrollY) {
-        setShowName(true); // Scrolling down
+        setShowName(true);
       } else {
-        setShowName(false); // Scrolling up
+        setShowName(false);
       }
       setLastScrollY(currentScrollY);
     };
@@ -51,10 +51,7 @@ export default function Header() {
       <nav className="max-w-[1440px] mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <motion.div
-              animate={{ opacity: showName ? 1 : 0 }}
-              transition={{ duration: 0.3 }}
-            >
+            <motion.div>
               <Link
                 href="/"
                 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-violet-400"
@@ -77,7 +74,7 @@ export default function Header() {
                 {item.name}
               </Link>
             ))}
-            <button
+            {/* <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               className="p-2 rounded-full bg-gradient-to-r from-blue-400/20 to-violet-400/20 hover:from-blue-400/30 hover:to-violet-400/30 transition-all duration-300"
               aria-label="Toggle theme"
@@ -91,13 +88,52 @@ export default function Header() {
                   )}
                 </div>
               )}
-            </button>
+            </button> */}
           </div>
 
-          <button className="md:hidden p-2">
-            <Bars3Icon className="w-6 h-6 text-white" />
+          <button 
+            className="md:hidden p-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? (
+              <XMarkIcon className="w-6 h-6 text-white" />
+            ) : (
+              <Bars3Icon className="w-6 h-6 text-white" />
+            )}
           </button>
         </div>
+
+        {/* Mobile menu */}
+        {mobileMenuOpen && (
+          <motion.div 
+            className="md:hidden"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.2 }}
+          >
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-gray-900/95 mt-4 rounded-lg">
+              {menuItems.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 rounded-md"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ))}
+              {/* <button
+                onClick={() => {
+                  setTheme(theme === "dark" ? "light" : "dark");
+                  setMobileMenuOpen(false);
+                }}
+                className="w-full px-3 py-2 text-left text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700 rounded-md"
+              >
+                {theme === "dark" ? "Light Mode" : "Dark Mode"}
+              </button> */}
+            </div>
+          </motion.div>
+        )}
       </nav>
     </motion.header>
   );
