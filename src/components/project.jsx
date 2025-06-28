@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 import SectionHOC from "./common/SectionHOC";
-import hero from "@/utlity/hero.json";
+import hero from "@/utility/hero.json"
 
 const Project = () => {
   const [activeTab, setActiveTab] = useState("all");

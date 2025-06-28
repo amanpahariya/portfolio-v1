@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
-import HeroInfo from "@/utlity/hero.json";
+import HeroInfo from "@/utility/hero.json";
 import SectionHOC from "./common/SectionHOC";
 
 const Contact = () => {

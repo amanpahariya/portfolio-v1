@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { motion, useTransform, useScroll, useSpring } from "framer-motion";
 import Link from "next/link";
 
-import HeroInfo from "@/utlity/hero.json";
+import HeroInfo from "@/utility/hero.json";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },

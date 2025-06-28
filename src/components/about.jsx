@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import HeroInfo from "@/utlity/hero.json";
+import HeroInfo from "@/utility/hero.json";
 
 // Animation Variants
 const containerVariants = {
