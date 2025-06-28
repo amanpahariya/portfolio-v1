@@ -9,5 +9,94 @@
     "Outside of work, I’m into boxing, gaming, and exploring new tech. Always excited to collaborate on ambitious projects with curious minds."
   ],
   "heroImage": "images/hero.jpeg",
-  "aboutMeImage": "images/hero.jpeg"
+  "aboutMeImage": "images/hero.jpeg",
+  "projects": [
+    {
+      "title": "Invock Landing Page",
+      "description":
+        "Maintained and improved Invock's official marketing website built to increase product visibility and lead conversion. Focused on frontend optimization, responsiveness, and deployment stability.",
+      "techStack": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Node.js",
+        "AWS Elastic Beanstalk"
+      ],
+      "link": "https://www.invock.com",
+      "highlights": [
+        "Improved page responsiveness across devices",
+        "Fixed UI/UX bugs and optimized frontend performance",
+        "Handled deployment and server-side updates",
+        "Enhanced SEO and structured data"
+      ],
+      "category": "web",
+      "icon": "🌐"
+    },
+    {
+      "title": "ERP Core Product",
+      "description":
+        "Full-stack ERP platform to streamline business operations like invoicing, inventory, and financial reports for local merchants. Built and scaled core features used daily by hundreds of users.",
+      "techStack": ["React.js", "Redux", "Node.js", "MongoDB", "AWS"],
+      "link": "#",
+      "highlights": [
+        "35% faster invoice generation",
+        "40% improved load time",
+        "Optimized MongoDB aggregation queries",
+        "Integrated AWS Lambda and GitHub Actions for CI/CD"
+      ],
+      "category": "fullstack",
+      "icon": "📊"
+    },
+    {
+      "title": "Internal CRM System",
+      "description":
+        "A lightweight CRM system built for internal use to manage invoices, inventory, and parties. Designed for fast access, clear reporting, and scalable architecture.",
+      "techStack": [
+        "Next.js",
+        "Tailwind CSS",
+        "Node.js",
+        "Express.js",
+        "MongoDB"
+      ],
+      "link": "#",
+      "highlights": [
+        "Real-time dashboard for invoices and inventory",
+        "Modular and scalable component architecture",
+        "Fast CRUD operations for party and item management",
+        "Optimized with server-side rendering for performance"
+      ],
+      "category": "fullstack",
+      "icon": "💼"
+    },
+    {
+      "title": "Portfolio v3",
+      "description":
+        "Third iteration of my personal portfolio website showcasing my projects and skills with a modern, responsive design and smooth animations.",
+      "techStack": ["React.js", "Tailwind CSS", "Framer Motion", "Netlify"],
+      "link": "https://amangupta-v3.netlify.app",
+      "highlights": [
+        "Responsive design for all device sizes",
+        "Smooth scroll animations and transitions",
+        "Optimized performance and accessibility",
+        "Modern UI with dark mode support"
+      ],
+      "category": "web",
+      "icon": "🎨"
+    },
+    {
+      "title": "Portfolio v2",
+      "description":
+        "Second version of my personal portfolio with improved design and interactive elements to better showcase my projects and technical abilities.",
+      "techStack": ["HTML", "CSS", "JavaScript", "Netlify"],
+      "link": "https://amangupta-v2.netlify.app",
+      "highlights": [
+        "Clean and minimalist design",
+        "Improved project showcasing",
+        "Contact form with validation",
+        "Optimized for fast loading"
+      ],
+      "category": "web",
+      "icon": "🎭"
+    }
+  ]
 }

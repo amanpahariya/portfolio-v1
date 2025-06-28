@@ -1,7 +1,6 @@
 import React, { useRef } from "react";
 import { motion, useTransform, useScroll, useSpring } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
 
 import HeroInfo from "@/utlity/hero.json";
 

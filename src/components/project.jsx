@@ -1,99 +1,121 @@
-import { motion } from 'framer-motion';
-import Link from 'next/link';
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { useState } from "react";
+import { ArrowRightIcon } from "@heroicons/react/24/outline";
+import SectionHOC from "./common/SectionHOC";
+import hero from "@/utlity/hero.json";
 
 const Project = () => {
-  return (
-    <section id="project" className="projects">
-      <div className="max-w-[1440px] mx-auto">
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-violet-400">
-            Projects
-          </h2>
-        </motion.div>
+  const [activeTab, setActiveTab] = useState("all");
 
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, staggerChildren: 0.2 }}
-        >
-          {[1, 2, 3].map((project) => (
+  const categories = [
+    { id: "all", label: "All Projects" },
+    { id: "web", label: "Web Development" },
+    { id: "fullstack", label: "Full Stack" },
+  ];
+
+  const filteredProjects =
+    activeTab === "all"
+      ? hero.projects
+      : hero.projects.filter((project) => project.category === activeTab);
+
+  return (
+    <SectionHOC id="project" className="projects" title={"Featured Projects"} subTitle={"Transforming ideas into exceptional digital experiences"}>
+        {/* Category Tabs */}
+        <div className="flex justify-center mb-12 overflow-x-auto pb-2">
+          <div className="flex space-x-2 p-1 bg-secondary/20 rounded-full">
+            {categories.map((category) => (
+              <button
+                key={category.id}
+                onClick={() => setActiveTab(category.id)}
+                className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
+                  activeTab === category.id
+                    ? "bg-primary text-primary-foreground shadow-lg"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {category.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {filteredProjects.map((project, index) => (
             <motion.div
-              key={project}
-              className="group relative bg-white/5 rounded-xl overflow-hidden"
-              whileHover={{ y: -5 }}
-              transition={{ duration: 0.2 }}
+              key={index}
+              className="hover-card bg-card rounded-xl overflow-hidden border border-border/40 h-full flex flex-col"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
             >
-              <div className="aspect-w-16 aspect-h-9 relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-violet-600/20 group-hover:opacity-75 transition-opacity" />
-                <motion.div
-                  className="w-full h-full bg-gradient-to-br from-blue-600/40 to-violet-600/40"
-                  whileHover={{ scale: 1.1, rotate: 2 }}
-                  transition={{ duration: 0.3 }}
-                />
+              <div className="p-6 border-b border-border/40 flex items-center gap-4">
+                <span className="text-3xl" role="img" aria-label="Project icon">
+                  {project.icon}
+                </span>
+                <h3 className="text-xl font-bold text-foreground">
+                  {project.title}
+                </h3>
               </div>
 
-              <div className="p-6">
-                <motion.h3
-                  className="text-2xl font-semibold text-white mb-4"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                >
-                  Project {project}
-                </motion.h3>
-                <motion.p
-                  className="text-gray-300 mb-4"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.1 }}
-                >
-                  Description of the amazing project and the technologies used
-                  to build it.
-                </motion.p>
-                <motion.div
-                  className="flex gap-2 mb-4"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.2 }}
-                >
-                  {["React", "Next.js", "TailwindCSS"].map((tech) => (
+              <div className="p-6 flex-grow flex flex-col">
+                <p className="text-card-foreground/80 mb-6 flex-grow">
+                  {project.description}
+                </p>
+
+                {/* Tech Stack */}
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {project.techStack.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 text-sm bg-white/10 rounded-full text-blue-300"
+                      className="px-3 py-1 text-xs font-medium bg-secondary/30 rounded-full text-secondary-foreground"
                     >
                       {tech}
                     </span>
                   ))}
-                </motion.div>
-                <Link
-                  href="#"
-                  className="inline-flex items-center text-blue-400 hover:text-blue-300 transition-colors"
-                >
-                  <span>View Project</span>
-                  <motion.span
-                    className="ml-2"
-                    whileHover={{ x: 5 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    →
-                  </motion.span>
-                </Link>
+                </div>
+
+                {/* Key Highlights */}
+                <div className="space-y-2 mb-6">
+                  <h4 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider">
+                    Highlights
+                  </h4>
+                  <ul className="space-y-1">
+                    {project.highlights.map((highlight, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm">
+                        <span className="text-primary mt-1">•</span>
+                        <span className="text-card-foreground/80">
+                          {highlight}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Project Link */}
+                <div className="flex flex-wrap gap-3 mt-auto">
+                  {project.link && project.link !== "#" ? (
+                    <Link
+                      href={project.link}
+                      className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:text-primary/80 transition-colors group"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View Project
+                       <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    </Link>
+                  ) : (
+                    <span className="text-sm text-muted-foreground italic">
+                      Private project
+                    </span>
+                  )}
+                </div>
               </div>
             </motion.div>
           ))}
-        </motion.div>
-      </div>
-    </section>
+        </div>
+    </SectionHOC>
   );
 };
 
