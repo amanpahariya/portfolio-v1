@@ -1,61 +1,144 @@
-import { motion } from 'framer-motion';
-import dynamic from 'next/dynamic';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 
 const Skills = () => {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  const y = useTransform(scrollYProgress, [0, 1], [30, -30]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [0, 5]);
+
+  const skillCategories = [
+    {
+      title: "Frontend",
+      icon: "🎨",
+      skills: [
+        { name: 'React', icon: '⚛️', level: 90, color: 'from-blue-400 to-cyan-400' },
+        { name: 'Next.js', icon: '▲', level: 85, color: 'from-gray-400 to-gray-600' },
+        { name: 'TypeScript', icon: '🔷', level: 85, color: 'from-blue-500 to-blue-700' },
+        { name: 'TailwindCSS', icon: '🎨', level: 90, color: 'from-teal-400 to-cyan-500' }
+      ]
+    },
+    {
+      title: "Backend",
+      icon: "⚙️",
+      skills: [
+        { name: 'Node.js', icon: '🟢', level: 80, color: 'from-green-400 to-green-600' },
+        { name: 'Express.js', icon: '🚀', level: 85, color: 'from-gray-500 to-gray-700' },
+        { name: 'MongoDB', icon: '🍃', level: 75, color: 'from-green-500 to-green-700' },
+        { name: 'GraphQL', icon: '◈', level: 75, color: 'from-pink-400 to-purple-500' }
+      ]
+    },
+    {
+      title: "Cloud & Tools",
+      icon: "☁️",
+      skills: [
+        { name: 'AWS', icon: '☁️', level: 70, color: 'from-orange-400 to-yellow-500' },
+        { name: 'Docker', icon: '🐳', level: 80, color: 'from-blue-500 to-blue-700' },
+        { name: 'Git', icon: '🌱', level: 90, color: 'from-red-400 to-red-600' },
+        { name: 'Linux', icon: '🐧', level: 75, color: 'from-yellow-400 to-orange-500' }
+      ]
+    }
+  ];
+
   return (
-      <section id="skills" className="py-20 px-6 lg:px-8 relative overflow-hidden">
-        <div className="max-w-[1440px] mx-auto relative z-10">
-          <motion.div 
-            className="text-center"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-4xl lg:text-5xl font-bold mb-12 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-violet-400">
-              Skills & Technologies
-            </h2>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-              {[
-                { name: 'React', icon: '⚛️', level: 90 },
-                { name: 'Next.js', icon: '▲', level: 85 },
-                { name: 'Node.js', icon: '🟢', level: 80 },
-                { name: 'TypeScript', icon: '🔷', level: 85 },
-                { name: 'TailwindCSS', icon: '🎨', level: 90 },
-                { name: 'GraphQL', icon: '◈', level: 75 },
-                { name: 'AWS', icon: '☁️', level: 70 },
-                { name: 'Docker', icon: '🐳', level: 80 }
-              ].map((skill) => (
-                <motion.div 
-                  key={skill.name}
-                  className="relative p-6 bg-white/5 rounded-xl backdrop-blur-sm"
-                  whileHover={{ scale: 1.05, y: -5 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <div className="text-3xl mb-3">{skill.icon}</div>
-                  <h3 className="text-xl font-semibold text-white mb-2">{skill.name}</h3>
-                  <div className="w-full h-2 bg-white/10 rounded-full overflow-hidden">
-                    <motion.div 
-                      className="h-full bg-gradient-to-r from-blue-400 to-violet-400"
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${skill.level}%` }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1, delay: 0.2 }}
-                    />
-                  </div>
-                  <div className="mt-2 text-sm text-blue-300">{skill.level}%</div>
+    <section id="skills" className="py-20 px-6 lg:px-8 relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute top-32 right-20 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 left-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl" />
+      
+      <motion.div 
+        ref={containerRef}
+        className="max-w-7xl mx-auto relative z-10"
+        style={{ y }}
+      >
+        <motion.div 
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-violet-400">
+            Skills & Technologies
+            <motion.p className="text-sm text-gray-300 mt-2">
+              My technical expertise and proficiency levels
+            </motion.p>
+          </h2>
+        </motion.div>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {skillCategories.map((category, categoryIndex) => (
+            <motion.div
+              key={category.title}
+              className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 border border-white/10 hover:border-white/20 transition-all duration-300"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: categoryIndex * 0.2 }}
+              whileHover={{ scale: 1.02, y: -5 }}
+              style={{ rotate }}
+            >
+              <div className="flex items-center space-x-3 mb-6">
+                <span className="text-2xl">{category.icon}</span>
+                <h3 className="text-xl font-bold text-white">{category.title}</h3>
+              </div>
+              
+              <div className="space-y-4">
+                {category.skills.map((skill, skillIndex) => (
                   <motion.div
-                    className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-400/10 to-violet-400/10 opacity-0"
-                    whileHover={{ opacity: 1 }}
-                    transition={{ duration: 0.3 }}
-                  />
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+                    key={skill.name}
+                    className="group"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: (categoryIndex * 0.2) + (skillIndex * 0.1) }}
+                  >
+                    <div className="flex items-center justify-between mb-2">
+                      <div className="flex items-center space-x-2">
+                        <span className="text-lg group-hover:scale-110 transition-transform">
+                          {skill.icon}
+                        </span>
+                        <span className="font-medium text-white group-hover:text-blue-300 transition-colors">
+                          {skill.name}
+                        </span>
+                      </div>
+                      <span className="text-sm text-blue-300 font-semibold">
+                        {skill.level}%
+                      </span>
+                    </div>
+                    
+                    <div className="relative h-2 bg-white/10 rounded-full overflow-hidden">
+                      <motion.div 
+                        className={`h-full bg-gradient-to-r ${skill.color} rounded-full relative`}
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${skill.level}%` }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1.5, delay: (categoryIndex * 0.2) + (skillIndex * 0.1) + 0.3, ease: "easeOut" }}
+                      >
+                        <motion.div
+                          className="absolute inset-0 bg-white/20 rounded-full"
+                          animate={{ x: ["-100%", "100%"] }}
+                          transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+                        />
+                      </motion.div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+              
+              {/* Hover Glow Effect */}
+              <motion.div
+                className="absolute inset-0 rounded-2xl bg-gradient-to-br from-blue-500/10 to-violet-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+              />
+            </motion.div>
+          ))}
         </div>
-      </section>
+      </motion.div>
+    </section>
   );
 };
 

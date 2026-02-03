@@ -7,6 +7,10 @@ import Skills from "@/components/skills";
 import Header from "@/components/header";
 import HeroVideo from "@/components/heroVideo";
 import Contact from "@/components/contact";
+import Experience from "@/components/experience";
+import Testimonials from "@/components/testimonials";
+import Stats from "@/components/stats";
+import ScrollProgress from "@/components/scroll-progress";
 
 export default function Home() {
   const containerRef = useRef(null);
@@ -23,6 +27,7 @@ export default function Home() {
 
   return (
     <main className="min-h-screen text-white bg-[#0d1117]">
+      <ScrollProgress />
       <Header />
 
       {/* Hero Section */}
@@ -34,11 +39,20 @@ export default function Home() {
       {/* About Section */}
       <About />
 
+      {/* Stats Section */}
+      <Stats />
+
+      {/* Experience Section */}
+      <Experience />
+
       {/* Projects Section */}
       <Project />
 
       {/* Skills Section */}
       <Skills />
+
+      {/* Testimonials Section */}
+      <Testimonials />
 
       {/* Contact Section */}
       <Contact />

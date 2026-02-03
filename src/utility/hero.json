@@ -1,10 +1,52 @@
 {
   "name": "Aman Gupta",
-  "title": "Full Stack Developer",
+  "title": "Software Engineer",
   "email": "amangupta201497@gmail.com",
   "bio": "I create exceptional digital experiences that combine stunning design with powerful functionality. Specializing in modern web applications and interactive experiences.",
+  "seoTitle": "Software Engineer & Full Stack Developer",
+  "seoDescription": "Software Engineer with 4+ years of experience building scalable web applications. Specializing in React.js, Node.js, MongoDB, and AWS cloud solutions.",
+  "seoShortDescription": "Building scalable web applications with modern technologies",
+  "seoKeywords": "Software Engineer, Full Stack Developer, React.js, Node.js, MongoDB, JavaScript, TypeScript, Next.js, Express.js, Web Development, ERP Systems, CRM Development, Frontend Developer, Backend Developer, Portfolio",
+  "githubUrl": "https://github.com/amanpahariya",
+  "linkedinUrl": "https://www.linkedin.com/in/amanguptag",
+  "experience": [
+    {
+      "title": "Software Engineer",
+      "company": "Current Company",
+      "period": "Apr 2023 - Present",
+      "description": "Building scalable web applications and ERP systems using modern technologies",
+      "achievements": ["35% faster invoice generation", "40% improved load times", "Integrated AWS Lambda and CI/CD"]
+    },
+    {
+      "title": "Junior Software Engineer",
+      "company": "Current Company",
+      "period": "Oct 2021 - Present",
+      "description": "Focused on creating responsive and interactive user interfaces",
+      "achievements": ["Improved page responsiveness", "Enhanced SEO performance", "Optimized frontend performance"]
+    }
+  ],
+  "stats": [
+    { "label": "Years Experience", "value": 4, "suffix": "+" },
+    { "label": "Projects Completed", "value": 15, "suffix": "+" },
+    { "label": "Happy Clients", "value": 10, "suffix": "+" },
+    { "label": "Code Commits", "value": 1000, "suffix": "+" }
+  ],
+  "testimonials": [
+    {
+      "name": "Client Name",
+      "role": "CEO, Company",
+      "content": "Aman delivered exceptional results on our ERP system. His technical expertise and attention to detail made the project a huge success.",
+      "rating": 5
+    },
+    {
+      "name": "Project Manager",
+      "role": "Tech Lead",
+      "content": "Working with Aman was a pleasure. He consistently delivered high-quality code and met all deadlines.",
+      "rating": 5
+    }
+  ],
   "aboutMe": [
-    "Passionate full stack developer with 4+ years of hands-on experience in building scalable, responsive web applications.",
+    "Software Engineer with 4+ years of hands-on experience in building scalable, responsive web applications.",
     "Problem-solver by nature, well-organized, and highly focused on code quality and performance.",
     "Outside of work, I’m into boxing, gaming, and exploring new tech. Always excited to collaborate on ambitious projects with curious minds."
   ],
