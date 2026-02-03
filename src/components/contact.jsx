@@ -86,9 +86,9 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-4xl lg:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-violet-400">
-            Let's Connect
+                        Let&apos;s Connect
             <motion.p className="text-sm text-gray-300 mt-2">
-              Ready to bring your ideas to life? Let's discuss your next project
+              Ready to bring your ideas to life? Let&apos;s discuss your next project
             </motion.p>
           </h2>
         </motion.div>
@@ -108,7 +108,7 @@ const Contact = () => {
             >
               <h3 className="text-2xl font-bold text-white mb-6">Get In Touch</h3>
               <p className="text-gray-300 mb-8 leading-relaxed">
-                I'm always interested in new opportunities and exciting projects. 
+                I&apos;m always interested in new opportunities and exciting projects. 
                 Whether you have a question or just want to say hi, feel free to reach out!
               </p>
               

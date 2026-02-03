@@ -50,7 +50,7 @@ const Testimonials = () => {
                   <span key={i} className="text-yellow-400 text-lg">★</span>
                 ))}
               </div>
-              <p className="text-gray-300 mb-4 italic">"{testimonial.content}"</p>
+              <p className="text-gray-300 mb-4 italic">&quot;{testimonial.content}&quot;</p>
               <div>
                 <h4 className="text-white font-semibold">{testimonial.name}</h4>
                 <p className="text-blue-400 text-sm">{testimonial.role}</p>

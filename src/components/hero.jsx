@@ -51,7 +51,7 @@ const Hero = () => {
               </div>
               
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-                <span className="block text-white/90">Hi, I'm</span>
+                <span className="block text-white/90">Hi, I&apos;m</span>
                 <span className="block mt-2 bg-gradient-to-r from-blue-400 via-purple-400 to-violet-400 bg-clip-text text-transparent">
                   {HeroInfo.name}
                 </span>
@@ -124,7 +124,7 @@ const Hero = () => {
                 className="group relative px-8 py-4 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 hover:border-white/20 transition-all duration-300 hover:bg-white/10"
               >
                 <span className="relative z-10 text-white font-semibold flex items-center gap-2">
-                  Let's Talk
+                  Let&apos;s Talk
                   <motion.span
                     className="w-2 h-2 bg-blue-400 rounded-full"
                     animate={{ scale: [1, 1.2, 1] }}
